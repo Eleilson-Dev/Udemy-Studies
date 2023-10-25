@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap");
 :root {
   --primary-color: rgb(17, 86, 102);
-  --primary-color-darker: rgb(9, 48, 56);
+  --primary-color-darker: rgb(6, 109, 129);
 }
 
 * {
@@ -57,4 +57,68 @@ form button {
 
 form button:hover {
   background: var(--primary-color-darker);
+}
+
+.stats {
+  display: flex;
+}
+
+.imc h2,
+.resultado h2 {
+  margin: 0 0 1rem 0;
+}
+.imc,
+.resultado {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 50%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+#peso {
+  display: block;
+}
+
+input {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.5rem 0;
+  width: 100%;
+  padding: 0.8rem;
+  display: block;
+}
+
+#btn {
+  margin-top: 2rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--primary-color-darker);
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.486);
+  cursor: pointer;
+}
+
+#btn:hover {
+  background-color: rgb(44, 164, 188);
+}
+
+#btn:active {
+  background-color: rgb(230, 19, 82);
+}
+
+.result {
+  display: none;
+}
+
+.result p {
+  background: rgb(64, 241, 132);
+  padding: 3px;
 }
