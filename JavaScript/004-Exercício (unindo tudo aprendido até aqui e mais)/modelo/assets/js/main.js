@@ -1,7 +1,7 @@
-const btn = document.querySelector("#btn");
+const form = document.querySelector(".form");
 const result = document.querySelector(".result");
-const peso = document.querySelector(".peso");
-const altura = document.querySelector(".altura");
+const peso = document.querySelector("#peso");
+const altura = document.querySelector("#altura");
 const p = result.querySelector("p");
 
 const imcs = [
@@ -17,34 +17,27 @@ const imcs = [
 ];
 
 const setColorAndText = (myIMC, status, color) => {
-  p.innerHTML = `Seu IMC é ${myIMC}(${status})`;
+  p.innerHTML = `Seu IMC é ${myIMC.toFixed(2)}(${status})`;
   p.style.background = color;
 };
 
-const getIMCStatus = (myIMC) => {
+const getImcStatus = (myIMC) => {
   for (const imc of imcs) {
     if (myIMC < imc.value) {
       return imc;
     }
   }
-  return imcs[imcs.length - 1]; // Default to the last status if no match is found
+  return imcs[imcs.length - 1];
 };
 
 const calcIMC = (myIMC) => {
-  const imcStatus = getIMCStatus(myIMC);
+  const imcStatus = getImcStatus(myIMC);
   setColorAndText(myIMC, imcStatus.status, imcStatus.color);
 };
 
-btn.addEventListener("click", () => {
-  if (peso.value === "" || altura.value === "") {
-    alert("Nenhum campo pode estár vazio");
-    return;
-  }
-
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
   const myIMC = Number(peso.value) / (Number(altura.value) * 2);
-  peso.value = "";
-  altura.value = "";
-  peso.focus();
-  calcIMC(myIMC.toFixed(2));
+  calcIMC(myIMC);
   result.style.display = "block";
 });
