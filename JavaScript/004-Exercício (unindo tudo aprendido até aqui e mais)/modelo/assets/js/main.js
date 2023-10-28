@@ -40,4 +40,7 @@ form.addEventListener("submit", (event) => {
   const myIMC = Number(peso.value) / (Number(altura.value) * 2);
   calcIMC(myIMC);
   result.style.display = "block";
+  peso.value = "";
+  altura.value = "";
+  peso.focus();
 });
