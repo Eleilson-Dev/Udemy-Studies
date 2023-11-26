@@ -2,105 +2,59 @@ const dateNow = document.querySelector(".date_now");
 
 const date = new Date();
 
-const day = date.getDay();
-const dateDay = date.getDate();
-const month = date.getMonth();
-const year = date.getFullYear();
-const hoursAndMinutes = `${date.getHours()}:${date.getMinutes()}`;
-const outputInfomations = {
-  getDay: day,
-  getDateDay: dateDay,
-  getMonth: month,
-  getYear: year,
-  getHoursAndMinutes: hoursAndMinutes,
+const getDayOfWeek = (diaAtual) => {
+  const daysOfWeek = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sabádo",
+  ];
+
+  return daysOfWeek[diaAtual];
 };
 
-const getDayOfWeek = () => {
-  let dayOfWeek;
-
-  switch (day) {
-    case 0:
-      dayOfWeek = "Domingo";
-      break;
-    case 1:
-      dayOfWeek = "Segunda-feira";
-      break;
-    case 2:
-      dayOfWeek = "Terça-feira";
-      break;
-    case 3:
-      dayOfWeek = "Quarta-feira";
-      break;
-    case 4:
-      dayOfWeek = "Quinta-feira";
-      break;
-    case 5:
-      dayOfWeek = "Sexta-feira";
-      break;
-    case 6:
-      dayOfWeek = "Sabádo";
-      break;
-  }
-
-  outputInfomations.getDay = dayOfWeek;
+const getMonthOfYear = (mesAtual) => {
+  const meses = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julio",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+  ];
+  return meses[mesAtual];
 };
 
-getDayOfWeek();
-
-const getMonthOfYear = () => {
-  let monthOfYear;
-  switch (month) {
-    case 0:
-      monthOfYear = "Janeiro";
-      break;
-    case 1:
-      monthOfYear = "Fevereiro";
-      break;
-    case 2:
-      monthOfYear = "Março";
-      break;
-    case 3:
-      monthOfYear = "Abril";
-      break;
-    case 4:
-      monthOfYear = "Maio";
-      break;
-    case 5:
-      monthOfYear = "Junho";
-      break;
-    case 6:
-      monthOfYear = "Julio";
-      break;
-    case 7:
-      monthOfYear = "Agosto";
-      break;
-    case 8:
-      monthOfYear = "Setembro";
-      break;
-    case 9:
-      monthOfYear = "Outubro";
-      break;
-    case 10:
-      monthOfYear = "Novembro";
-      break;
-    case 11:
-      monthOfYear = "Dezembro";
-      break;
-  }
-
-  outputInfomations.getMonth = monthOfYear;
+const zeroAEsquerda = (num) => {
+  return num < 10 ? `0${num}` : num;
 };
-
-getMonthOfYear();
 
 const writeInformations = () => {
   dateNow.innerHTML = `
-    ${outputInfomations.getDay}, 
-    ${outputInfomations.getDateDay}
-    de ${outputInfomations.getMonth} 
-    de ${outputInfomations.getYear} 
-    ${outputInfomations.getHoursAndMinutes}
+    ${getDayOfWeek(date.getDay())},
+    ${date.getDate()}
+    de ${getMonthOfYear(date.getMonth())}
+    de ${date.getFullYear()} <br/>
+    ${date.getHours()}:
+    ${zeroAEsquerda(date.getMinutes())}
   `;
 };
 
 writeInformations();
+
+// const dateNow = document.querySelector(".date_now");
+// const date = new Date();
+
+// dateNow.innerHTML = date.toLocaleString("pt-BR", {
+//   dateStyle: "full",
+//   timeStyle: "short",
+// });
