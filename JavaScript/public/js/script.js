@@ -1,2 +1,14 @@
-const date = new Date("2023");
-console.log(date.toString());
+const users = [
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+  { key: 1, name: "Eleilson", lastName: "sobrenome", level: 69 },
+];
+
+console.table(users);
